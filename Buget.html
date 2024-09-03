@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buget Personal - Tema Apple</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f7;
+            color: #333;
+        }
+        h1, h2 {
+            color: #1d1d1f;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        table, th, td {
+            border: 1px solid #e1e1e3;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f7;
+            color: #6e6e73;
+            font-weight: 600;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #e8e8ea;
+        }
+        .switch-cell {
+            text-align: center;
+        }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 28px;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #007aff;
+        }
+        input:checked + .slider:before {
+            transform: translateX(22px);
+        }
+        .summary {
+            font-weight: bold;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        #sold {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            color: #007aff;
+            margin-top: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Buget Personal</h1>
+
+        <h2>Buget Inițial</h2>
+        <p id="sold">1600 lei</p>
+
+        <h2>Venituri</h2>
+        <table>
+            <tr>
+                <th>On/Off</th>
+                <th>Data</th>
+                <th>Descriere</th>
+                <th>Suma (lei)</th>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 200, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>04.09</td>
+                <td>Ciubuc</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 4000, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Salariu el</td>
+                <td>4000</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 2200, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Salariu ea cabinet card</td>
+                <td>2200</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 1430, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Bonus el vânzări</td>
+                <td>1430</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 30, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>08.09</td>
+                <td>Rochie Vinted</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 4630, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>15.09</td>
+                <td>Salariu ea spital</td>
+                <td>4630</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 2000, 'incasare')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>25.09</td>
+                <td>Salariu ea cabinet Cas</td>
+                <td>2000</td>
+            </tr>
+        </table>
+
+        <h2>Cheltuieli</h2>
+        <table>
+            <tr>
+                <th>On/Off</th>
+                <th>Data</th>
+                <th>Descriere</th>
+                <th>Suma (lei)</th>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 1500, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>03.09</td>
+                <td>Botez Petra</td>
+                <td>1500</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 500, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>04.09</td>
+                <td>Nor Călător</td>
+                <td>500</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 50, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>04.09</td>
+                <td>Card memorie</td>
+                <td>50</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 300, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Benzină</td>
+                <td>300</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 4000, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Plecare Grecia</td>
+                <td>4000</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 100, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Lenjerie Grecia</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 200, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Cheltuieli aeroport ea</td>
+                <td>200</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 600, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>05.09</td>
+                <td>Țigări Grecia</td>
+                <td>600</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 2000, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>08.09</td>
+                <td>Facultate el</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 2000, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>21.09</td>
+                <td>Ziua ei</td>
+                <td>2000</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 640, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>25.09</td>
+                <td>Rată aer + Dyson</td>
+                <td>640</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 100, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>25.09</td>
+                <td>BT el</td>
+                <td>100</td>
+            </tr>
+            <tr>
+                <td class="switch-cell">
+                    <label class="switch">
+                        <input type="checkbox" onclick="actualizeazaSold(this, 260, 'cheltuiala')">
+                        <span class="slider"></span>
+                    </label>
+                </td>
+                <td>25.09</td>
+                <td>Terapie ea</td>
+                <td>260</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let sold = 1600;
+
+        function actualizeazaSold(element, suma, tip) {
+            const row = element.closest('tr');
+            if (element.checked) {
+                if (tip === 'incasare') {
+                    sold += suma;
+                    row.style.backgroundColor = '#d4edda'; // verde pentru incasari
+                } else {
+                    sold -= suma;
+                    row.style.backgroundColor = '#f8d7da'; // rosu pentru cheltuieli
+                }
+            } else {
+                if (tip === 'incasare') {
+                    sold -= suma;
+                } else {
+                    sold += suma;
+                }
+                row.style.backgroundColor = ''; // resetare culoare la debifare
+            }
+            document.getElementById("sold").innerText = sold + " lei";
+        }
+    </script>
+
+</body>
+</html>
